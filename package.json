@@ -1,5 +1,5 @@
 {
-  "name": "interal-repo-clone-acton",
+  "name": "inner-source-checkout-action",
   "version": "1.0.0",
   "license": "MIT",
   "main": "dist/index.js",
