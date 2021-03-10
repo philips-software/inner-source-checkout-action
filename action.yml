@@ -1,5 +1,5 @@
 name: 'Private / Internal actions checkout.'
-description: 'Action to checkout a list private or internal action repository.'
+description: 'Action to checkout a list of private or internal action repositories.'
 author: 'Niek Palm'
 branding:
   icon: 'download'
