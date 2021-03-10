@@ -74,9 +74,9 @@ Running locally requires you hav have a token (app installation token) that has 
 
 - `INPUT_TOKEN` : access token
 - `INPUT_REPOS`: list of repos, eg owner/repo1, owner/repo2.
--`INPUT_BASE_DIR`: for example `.actions`.
+- `INPUT_BASE_DIR`: for example `.actions`.
 
-INPUT_TOKEN=v1.91d0cca03fa269e7e3d8892c807bc6479387057e
+INPUT_TOKEN=<token>
 INPUT_REPOS=philips-internal/fastlane-action@master
 INPUT_BASE_DIR=.actions
 **Example:**
