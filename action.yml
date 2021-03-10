@@ -1,0 +1,22 @@
+name: 'Private / Internal actions checkout.'
+description: 'Action to checkout a list private or internal action repository.'
+author: 'Niek Palm'
+branding:
+  icon: 'download'
+  color: 'green'
+
+inputs:
+  token:
+    description: App installation or PAT token that have read access to action repositories.
+    required: true
+  repos:
+    description: A comma separated list of actions repos (owner/repo)
+    required: true
+  base_dir:
+    description: base dir for cloning actions
+    required: false
+    default: '.actions'
+
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
