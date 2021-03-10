@@ -38,6 +38,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
+          persist-credentials: false # remove credentials so semantic release will the app token
 
       - uses: philips-software/app-token-action@v1.0.0
         id: app
