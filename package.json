@@ -8,7 +8,7 @@
     "format-check": "prettier --check **/*.ts",
     "lint": "eslint src/**/*.ts",
     "test": "jest --coverage",
-    "build": "ncc build src/main.ts -o dist",
+    "build": "ncc build src/main.ts -o dist/main && ncc build src/cleanup.ts -o dist/cleanup",
     "all": "npm run build && npm run format && npm run lint && npm run package && npm test",
     "watch": "ts-node-dev --respawn --exit-child src/main.ts",
     "release": "semantic-release"
