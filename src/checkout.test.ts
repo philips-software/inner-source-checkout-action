@@ -36,9 +36,12 @@ describe('Clone repos succeeds.', () => {
       token,
     });
     expect(exec).toHaveBeenCalledWith('git', [
-      `clone https://x-access-token:${token}@github.com/${defaultValidRepo1.owner}/${defaultValidRepo1.name}`,
-      '--depth 1',
-      `--branch ${defaultValidRepo1.ref}`,
+      'clone',
+      `https://x-access-token:${token}@github.com/${defaultValidRepo1.owner}/${defaultValidRepo1.name}.git`,
+      '--depth',
+      '1',
+      '--branch',
+      `${defaultValidRepo1.ref}`,
       `${defaultValidRepo1.name}`,
     ]);
   });
