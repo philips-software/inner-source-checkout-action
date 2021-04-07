@@ -507,6 +507,7 @@ function cleanup() {
         const baseDirPath = path.join(githubWorkspacePath, baseDir);
         try {
             yield new Promise((resolve, reject) => {
+                core.info(`Removing private / inner source actions dir: ${baseDir}`);
                 fs.rmdir(baseDirPath, { recursive: true }, (error) => {
                     if (error) {
                         reject(error);
