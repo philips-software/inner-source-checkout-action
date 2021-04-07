@@ -6,12 +6,21 @@ async function cleanup(): Promise<void> {
   const baseDir = core.getInput('base_dir', { required: true });
   const githubWorkspacePath = process.env['GITHUB_WORKSPACE'] || '';
   const baseDirPath = path.join(githubWorkspacePath, baseDir);
-  fs.rm(baseDirPath, { force: true, recursive: true }, (error) => {
-    if (error) {
-      core.debug(error?.stack || 'stack trace not state.');
-      core.setFailed(error?.message || 'error while delete, no error message available.');
-    }
-  });
+
+  try {
+    await new Promise((resolve, reject) => {
+      fs.rmdir(baseDirPath, { recursive: true }, (error) => {
+        if (error) {
+          reject(error);
+        } else {
+          resolve(true);
+        }
+      });
+    });
+  } catch (e) {
+    core.debug(e);
+    core.setFailed(e.message);
+  }
 }
 
 cleanup();
