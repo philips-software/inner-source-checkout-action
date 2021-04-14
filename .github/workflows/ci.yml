@@ -41,6 +41,7 @@ jobs:
           persist-credentials: false # remove credentials so semantic release will the app token
 
       - uses: philips-software/app-token-action@v1.0.0
+        if: github.event_name != 'pull_request' && contains('refs/heads/main', github.ref)
         id: app
         with:
           app_id: ${{ secrets.FOREST_RELEASER_APP_ID }}
@@ -54,7 +55,7 @@ jobs:
 
       - name: Dry run release
         env:
-          GITHUB_TOKEN: ${{ steps.app.outputs.token }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: yarn && yarn run release -d -b ${{ steps.branch.outputs.short_ref }}
 
       - name: Release
