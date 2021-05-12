@@ -40,7 +40,7 @@ jobs:
           fetch-depth: 0
           persist-credentials: false # remove credentials so semantic release will the app token
 
-      - uses: philips-software/app-token-action@v1.0.0
+      - uses: philips-software/app-token-action@v1.0.2
         if: github.event_name != 'pull_request' && contains('refs/heads/main', github.ref)
         id: app
         with:
