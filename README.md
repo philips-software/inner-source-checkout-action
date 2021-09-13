@@ -1,6 +1,6 @@
 # Inner source repository checkout action
 
-This action allows to clone a list of inner source (private / internal repositories) by providing an app token that has read access to the repositories. The action allows you easy use private / internal action in almost identical way as the public one. The action will execute a shallow clone for a specific ref.
+This action allows you to clone a list of inner source (internal ) repositories by providing an app token that has read access to the repositories. The action allows you to easily use private actions in almost the same way as public ones,  executing a shallow clone for a specific ref.
 
 
 ## Inputs
@@ -21,15 +21,15 @@ This action is an `node12` action.
 
 ### Setup
 
-We recommend to use an app installation token over a PAT token.  
+We recommend using a GitHub [app installation token](https://docs.github.com/en/developers/apps/authenticating-with-github-apps) instead of a PAT.  
 
-1. Create an GitHub in your org.
+1. Create a GitHub app token for your org.
 2. Grant read access to content in the repository section.
 3. Install the app in your internal action repositories.
 
-### Workfows
+### Workflows
 
-Below an example snippet of a workflow to setup your inner source actions.
+Below is an example snippet of a workflow to setup and run your inner source actions.
 
 ```yaml
 
@@ -70,7 +70,7 @@ Standard commands such as lint, test and build are available via yarn. Check [pa
 
 ### Test locally
 
-Running locally requires you hav have a token (app installation token) that has read access to the code in a repo. To run the local ensure you have set the environment variables:
+Running locally requires you to have an app installation token with read access to the action repo. Before running localy you must first set the following environment variables:
 
 - `INPUT_TOKEN` : access token
 - `INPUT_REPOS`: list of repos, eg owner/repo1, owner/repo2.
@@ -95,7 +95,7 @@ We welcome contributions, please checkout the [contribution guide](CONTRIBUTING.
 
 ## License
 
-This project are released under the [MIT License](./LICENSE).
+This project is released under the [MIT License](./LICENSE).
 
 ## Philips Forest
 
