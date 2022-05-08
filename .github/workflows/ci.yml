@@ -20,6 +20,8 @@ jobs:
         run: yarn install
       - name: Check format and lint
         run: yarn run format-check && yarn lint
+      - name: Run tests
+        run: yarn test
       - name: Build and package
         run: yarn build
 

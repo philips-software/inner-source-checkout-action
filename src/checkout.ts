@@ -57,7 +57,7 @@ export async function checkout(parameters: Parameters): Promise<void> {
 
     const exitCode = await exec.exec(`git`, [
       'clone',
-      `https://x-access-token:${parameters.token}@github.com/${repo.owner}/${repo.name}`,
+      `https://x-access-token:${parameters.token}@github.com/${repo.owner}/${repo.name}.git`,
       '--depth',
       '1',
       '--branch',

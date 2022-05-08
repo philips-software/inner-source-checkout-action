@@ -1503,7 +1503,7 @@ function checkout(parameters) {
             const cloneDir = path.join(parameters.githubWorkspacePath, parameters.baseDir, repo.name);
             const exitCode = yield exec.exec(`git`, [
                 'clone',
-                `https://x-access-token:${parameters.token}@github.com/${repo.owner}/${repo.name}`,
+                `https://x-access-token:${parameters.token}@github.com/${repo.owner}/${repo.name}.git`,
                 '--depth',
                 '1',
                 '--branch',
