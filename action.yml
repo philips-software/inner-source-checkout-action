@@ -18,6 +18,6 @@ inputs:
     default: '.actions'
 
 runs:
-  using: 'node12'
+  using: 'node16'
   main: 'dist/main/index.js'
   post: 'dist/cleanup/index.js'
