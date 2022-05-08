@@ -7,6 +7,7 @@ export interface Parameters {
   token: string;
   baseDir: string;
   githubWorkspacePath: string;
+  fullHistory: boolean;
 }
 
 export interface ActionRepo {
@@ -55,15 +56,19 @@ export async function checkout(parameters: Parameters): Promise<void> {
 
     const cloneDir = path.join(parameters.githubWorkspacePath, parameters.baseDir, repo.name);
 
-    const exitCode = await exec.exec(`git`, [
-      'clone',
-      `https://x-access-token:${parameters.token}@github.com/${repo.owner}/${repo.name}.git`,
-      '--depth',
-      '1',
-      '--branch',
-      repo.ref,
-      cloneDir,
-    ]);
+    const gitArgs: string[] = [];
+
+    gitArgs.push('clone');
+    gitArgs.push(`https://x-access-token:${parameters.token}@github.com/${repo.owner}/${repo.name}.git`);
+    if (!parameters.fullHistory) {
+      gitArgs.push('--depth');
+      gitArgs.push('1');
+    }
+    gitArgs.push('--branch');
+    gitArgs.push(repo.ref);
+    gitArgs.push(cloneDir);
+
+    const exitCode = await exec.exec(`git`, gitArgs);
 
     if (exitCode !== 0) {
       throw new Error(`Clone repos failed with exit code ${exitCode}`);

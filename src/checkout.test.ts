@@ -27,12 +27,13 @@ describe('Clone repos succeeds.', () => {
     });
   });
 
-  test('Shoudd clone without error a single repo.', async () => {
+  test('Should clone without error a single repo.', async () => {
     const token = 'invalid';
     await checkout({
       baseDir: '',
       githubWorkspacePath: '',
       repos: defaultValidRepo1String,
+      fullHistory: false,
       token,
     });
     expect(exec).toHaveBeenCalledWith('git', [
@@ -46,12 +47,31 @@ describe('Clone repos succeeds.', () => {
     ]);
   });
 
-  test('Shoudd clone without error a single repo.', async () => {
+  test('Should clone with full history.', async () => {
+    const token = 'invalid';
+    await checkout({
+      baseDir: '',
+      githubWorkspacePath: '',
+      repos: defaultValidRepo1String,
+      fullHistory: true,
+      token,
+    });
+    expect(exec).toHaveBeenCalledWith('git', [
+      'clone',
+      `https://x-access-token:${token}@github.com/${defaultValidRepo1.owner}/${defaultValidRepo1.name}.git`,
+      '--branch',
+      `${defaultValidRepo1.ref}`,
+      `${defaultValidRepo1.name}`,
+    ]);
+  });
+
+  test('Should clone without error a single repo.', async () => {
     const token = 'invalid';
     await checkout({
       baseDir: '',
       githubWorkspacePath: '',
       repos: `${defaultValidRepo1String},${defaultValidRepo2String}`,
+      fullHistory: false,
       token,
     });
     expect(exec).toHaveBeenCalledTimes(2);
@@ -76,6 +96,7 @@ describe('Clone repos error scenarios.', () => {
         baseDir: '',
         githubWorkspacePath: '',
         repos: `${defaultValidRepo1String},${defaultValidRepo2String}`,
+        fullHistory: false,
         token,
       }),
     ).rejects.toThrow();
@@ -89,6 +110,7 @@ describe('Clone repos error scenarios.', () => {
         baseDir: '',
         githubWorkspacePath: '',
         repos: `invalid`,
+        fullHistory: false,
         token,
       }),
     ).rejects.toThrow();

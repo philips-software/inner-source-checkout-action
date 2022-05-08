@@ -6,6 +6,7 @@ async function run(): Promise<void> {
     const repos = core.getInput('repos', { required: true });
     const token = core.getInput('token', { required: true });
     const baseDir = core.getInput('base_dir', { required: true });
+    const fullHistory = core.getBooleanInput('full_history', { required: true });
     const githubWorkspacePath = process.env['GITHUB_WORKSPACE'] || '';
 
     await checkout({
@@ -13,6 +14,7 @@ async function run(): Promise<void> {
       githubWorkspacePath,
       repos,
       token,
+      fullHistory,
     });
   } catch (error) {
     core.debug(error);

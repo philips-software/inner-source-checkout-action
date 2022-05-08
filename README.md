@@ -5,12 +5,12 @@ This action allows you to clone a list of inner source (internal ) repositories 
 
 ## Inputs
 
-| parameter | description                                                                 | required | default  |
-| --------- | --------------------------------------------------------------------------- | -------- | -------- |
-| token     | App installation or PAT token that have read access to action repositories. | `true`   |          |
-| repos     | A comma separated list of actions repos (owner/repo)                        | `true`   |          |
-| base_dir  | base dir for cloning actions                                                | `false`  | .actions |
-
+| parameter    | description                                                                 | required | default  |
+| ------------ | --------------------------------------------------------------------------- | -------- | -------- |
+| token        | App installation or PAT token that have read access to action repositories. | `true`   |          |
+| repos        | A comma separated list of actions repos (owner/repo)                        | `true`   |          |
+| base_dir     | base dir for cloning actions                                                | `false`  | .actions |
+| full_history | checkout repository with full history or only the HEAD                      | `false`  | false    |
 
 ## Runs
 
@@ -21,7 +21,7 @@ This action is an `node12` action.
 
 ### Setup
 
-We recommend using a GitHub [app installation token](https://docs.github.com/en/developers/apps/authenticating-with-github-apps) instead of a PAT.  
+We recommend using a GitHub [app installation token](https://docs.github.com/en/developers/apps/authenticating-with-github-apps) instead of a PAT.
 
 1. Create a GitHub app token for your org.
 2. Grant read access to content in the repository section.
@@ -54,7 +54,7 @@ jobs:
           base_dir: .actions
           repos: org/repo1@version, org/repo2@version
 
-      # Use your private actions  
+      # Use your private actions
       - uses: ./.actions/org/repo2
 
       - uses: ./.actions/org/repo1
@@ -75,22 +75,28 @@ Running locally requires you to have an app installation token with read access 
 - `INPUT_TOKEN` : access token
 - `INPUT_REPOS`: list of repos, eg owner/repo1, owner/repo2.
 - `INPUT_BASE_DIR`: for example `.actions`.
+- `INPUT_FULL_HISTORY`: for example `true`.
 
+```
 INPUT_TOKEN=<token>
 INPUT_REPOS=philips-internal/fastlane-action@master
 INPUT_BASE_DIR=.actions
+INPUT_FULL_HISTORY=false
+```
+
 **Example:**
 
 ```bash
 export INPUT_TOKEN=philips-software
-export INPUT_TOKEN=philips-software/app-token-action
+export INPUT_REPOS=philips-software/app-token-action
 export INPUT_BASE_DIR=.actions
+export INPUT_FULL_HISTORY=false
 yarn watch
 ```
 
 ## Contribution
 
-We welcome contributions, please checkout the [contribution guide](CONTRIBUTING.md). 
+We welcome contributions, please checkout the [contribution guide](CONTRIBUTING.md).
 
 
 ## License
