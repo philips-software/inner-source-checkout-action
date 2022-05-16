@@ -17,7 +17,7 @@ inputs:
     required: false
     default: '.actions'
   full_checkout:
-    description: Full Checkout of the repository
+    description: By defaullt a shallow clone with depth 1 is created. Set to `true` to clone the repo will a full history.
     required: false
     default: false
 
