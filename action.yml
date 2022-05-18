@@ -7,7 +7,7 @@ branding:
 
 inputs:
   token:
-    description: App installation or PAT token that have read access to action repositories.
+    description: App installation or PAT token that have read access to action repositories
     required: true
   repos:
     description: A comma separated list of actions repos (owner/repo)
@@ -16,6 +16,10 @@ inputs:
     description: base dir for cloning actions
     required: false
     default: '.actions'
+  full_checkout:
+    description: By defaullt a shallow clone with depth 1 is created. Set to `true` to clone the repo will a full history.
+    required: false
+    default: false
 
 runs:
   using: 'node12'
