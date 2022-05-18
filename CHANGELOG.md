@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/philips-software/inner-source-checkout-action/compare/v1.1.0...v1.2.0) (2022-05-18)
+
+
+### Features
+
+* Add optional full_history boolean flag ([#173](https://github.com/philips-software/inner-source-checkout-action/issues/173)) ([d042e2c](https://github.com/philips-software/inner-source-checkout-action/commit/d042e2cafc9ea411870d45b495d488cf3afc4d13))
+
 ## [1.1.0](https://github.com/philips-software/inner-source-checkout-action/compare/v1.0.0...v1.1.0) (2021-04-07)
 
 
