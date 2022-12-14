@@ -48,7 +48,7 @@ jobs:
           app_base64_private_key: ${{ secrets.APPLICATION_PRIVATE_KEY_BASE64 }}
           auth_type: 'installation'
 
-      - uses: philips-software/inner-source-checkout-action@1.2.0
+      - uses: philips-software/inner-source-checkout-action@1.3.0
         with:
           token: ${{ steps.token.outputs.token }}
           base_dir: .actions
