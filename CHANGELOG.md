@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.0](https://github.com/philips-software/inner-source-checkout-action/compare/v1.2.1...v1.3.0) (2022-12-14)
+
+
+### Features
+
+* node12 is no longer supported ([d1bda8e](https://github.com/philips-software/inner-source-checkout-action/commit/d1bda8ed3e5b541f5f3fbcc00e556970815244c5))
+
 ## [1.2.0](https://github.com/philips-software/inner-source-checkout-action/compare/v1.1.0...v1.2.0) (2022-05-18)
 
 
