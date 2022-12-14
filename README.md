@@ -14,7 +14,7 @@ This action allows you to clone a list of inner source (internal ) repositories 
 
 ## Runs
 
-This action is an `node12` action.
+This action is an `node16` action.
 
 
 ## Usages
@@ -42,13 +42,13 @@ jobs:
       # Setup private actions
       - name: Get Token
         id: token
-        uses: philips-software/app-token-action@1.0.0
+        uses: philips-software/app-token-action@v1.1.2
         with:
           app_id: <app_id>
           app_base64_private_key: ${{ secrets.APPLICATION_PRIVATE_KEY_BASE64 }}
           auth_type: 'installation'
 
-      - uses: philips-software/inner-source-checkout-action@1.0.0
+      - uses: philips-software/inner-source-checkout-action@1.2.0
         with:
           token: ${{ steps.token.outputs.token }}
           base_dir: .actions
