@@ -10,7 +10,7 @@ async function cleanup(): Promise<void> {
   try {
     await new Promise((resolve, reject) => {
       core.info(`Removing private / inner source actions dir: ${baseDir}`);
-      fs.rmdir(baseDirPath, { recursive: true }, (error) => {
+      fs.rm(baseDirPath, { recursive: true, force: true }, (error) => {
         if (error) {
           reject(error);
         } else {
