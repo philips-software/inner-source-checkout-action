@@ -1,5 +1,12 @@
 # Changelog
 
+## Unreleased
+
+ * Changed fs.rmdir usage to fs.rm per deprication warning `[DEP0147] DeprecationWarning: In future versions of Node.js, fs.rmdir(path, { recursive: true }) will be removed. Use fs.rm(path, { recursive: true }) instead`
+ * Fixed error in action cleanup if action is used multiple times:
+   * Behavoir of recursive fs.rmdir has changed between node12 and node16: In node12, no error was returned if path does not exist (which is the case for the second cleanup of the action). In node16, a 'path does not exist' error is raised if the path does not exist.
+ * changed `set-output` usage per [github deprication warning](https://github.blog/changelog/2022-10-11-github-actions-deprecating-save-state-and-set-output-commands/)
+
 ## [1.3.0](https://github.com/philips-software/inner-source-checkout-action/compare/v1.2.1...v1.3.0) (2022-12-14)
 
 

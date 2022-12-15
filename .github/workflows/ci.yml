@@ -52,7 +52,7 @@ jobs:
           org: philips-software
 
       - name: Extract branch name
-        run: echo ::set-output name=short_ref::${GITHUB_REF#refs/*/}
+        run: echo "short_ref=${GITHUB_REF#refs/*/}" >> $GITHUB_OUTPUT
         id: branch
 
       - name: Dry run release
