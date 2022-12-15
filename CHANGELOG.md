@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.3.1](https://github.com/philips-software/inner-source-checkout-action/compare/v1.3.0...v1.3.1) (2022-12-15)
+
+
+### Bug Fixes
+
+* Fixed changed behavior of action cleanup due to NodeJS version update ([12de368](https://github.com/philips-software/inner-source-checkout-action/commit/12de368f2d8a526482b71d153b65cf251d2e775f))
+
 ## Unreleased
 
  * Changed fs.rmdir usage to fs.rm per deprication warning `[DEP0147] DeprecationWarning: In future versions of Node.js, fs.rmdir(path, { recursive: true }) will be removed. Use fs.rm(path, { recursive: true }) instead`
