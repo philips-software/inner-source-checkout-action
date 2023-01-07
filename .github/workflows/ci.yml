@@ -10,9 +10,8 @@ jobs:
       matrix:
         node-version: ['14', '16']
     steps:
-      - uses: actions/checkout@v3.1.0
-
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8 # ratchet:actions/checkout@v3.1.0
+      - uses: actions/setup-node@64ed1c7eab4cce3362f8c340dee64e5eaeef8f7c # ratchet:actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
 
@@ -27,7 +26,7 @@ jobs:
 
       - name: Update dist in the repository
         if: github.event_name != 'pull_request' && matrix.node-version == 16
-        uses: stefanzweifel/git-auto-commit-action@v4.16.0
+        uses: stefanzweifel/git-auto-commit-action@3ea6ae190baf489ba007f7c92608f33ce20ef04a # ratchet:stefanzweifel/git-auto-commit-action@v4.16.0
         with:
           commit_message: 'chore(ci): Updating dist'
           file_pattern: dist/*
@@ -37,12 +36,11 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3.1.0
+      - uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8 # ratchet:actions/checkout@v3.1.0
         with:
           fetch-depth: 0
           persist-credentials: false # remove credentials so semantic release will the app token
-
-      - uses: philips-software/app-token-action@v1.1.2
+      - uses: philips-software/app-token-action@a37926571e4cec6f219e06727136efdd073d8657 # ratchet:philips-software/app-token-action@v1.1.2
         if: github.event_name != 'pull_request' && contains('refs/heads/main', github.ref)
         id: app
         with:
