@@ -10,7 +10,7 @@ jobs:
       matrix:
         node-version: ['14', '16']
     steps:
-      - uses: actions/checkout@v3.1.0
+      - uses: actions/checkout@v3.5.2
 
       - uses: actions/setup-node@v3
         with:
@@ -37,7 +37,7 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3.1.0
+      - uses: actions/checkout@v3.5.2
         with:
           fetch-depth: 0
           persist-credentials: false # remove credentials so semantic release will the app token
